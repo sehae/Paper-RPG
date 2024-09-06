@@ -448,6 +448,11 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!212 &2087116554 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 885375819823663493, guid: b940def881aae8f43ad0ecc2d8284887, type: 3}
+  m_PrefabInstance: {fileID: 5748596134931112509}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5748596134931112509
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -464,6 +469,14 @@ PrefabInstance:
       propertyPath: m_FlipX
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 885375819823663493, guid: b940def881aae8f43ad0ecc2d8284887, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 909340341, guid: dea468b26445f8543b83d755e534c988, type: 3}
+    - target: {fileID: 885375819823663493, guid: b940def881aae8f43ad0ecc2d8284887, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4449522983522832531, guid: b940def881aae8f43ad0ecc2d8284887, type: 3}
       propertyPath: speed
       value: 35
@@ -473,9 +486,61 @@ PrefabInstance:
       value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 4449522983522832531, guid: b940def881aae8f43ad0ecc2d8284887, type: 3}
+      propertyPath: flipSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4449522983522832531, guid: b940def881aae8f43ad0ecc2d8284887, type: 3}
+      propertyPath: fallSprite
+      value: 
+      objectReference: {fileID: 191015255, guid: dea468b26445f8543b83d755e534c988, type: 3}
+    - target: {fileID: 4449522983522832531, guid: b940def881aae8f43ad0ecc2d8284887, type: 3}
+      propertyPath: idleSprite
+      value: 
+      objectReference: {fileID: -1710064603, guid: dea468b26445f8543b83d755e534c988, type: 3}
+    - target: {fileID: 4449522983522832531, guid: b940def881aae8f43ad0ecc2d8284887, type: 3}
       propertyPath: jumpHeight
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 4449522983522832531, guid: b940def881aae8f43ad0ecc2d8284887, type: 3}
+      propertyPath: jumpSprite
+      value: 
+      objectReference: {fileID: -856736619, guid: dea468b26445f8543b83d755e534c988, type: 3}
+    - target: {fileID: 4449522983522832531, guid: b940def881aae8f43ad0ecc2d8284887, type: 3}
+      propertyPath: jumpUpSprite
+      value: 
+      objectReference: {fileID: -856736619, guid: dea468b26445f8543b83d755e534c988, type: 3}
+    - target: {fileID: 4449522983522832531, guid: b940def881aae8f43ad0ecc2d8284887, type: 3}
+      propertyPath: fallingSprite
+      value: 
+      objectReference: {fileID: 191015255, guid: dea468b26445f8543b83d755e534c988, type: 3}
+    - target: {fileID: 4449522983522832531, guid: b940def881aae8f43ad0ecc2d8284887, type: 3}
+      propertyPath: jumpingSprite
+      value: 
+      objectReference: {fileID: -856736619, guid: dea468b26445f8543b83d755e534c988, type: 3}
+    - target: {fileID: 4449522983522832531, guid: b940def881aae8f43ad0ecc2d8284887, type: 3}
+      propertyPath: walkingSprite
+      value: 
+      objectReference: {fileID: -2097157143, guid: dea468b26445f8543b83d755e534c988, type: 3}
+    - target: {fileID: 4449522983522832531, guid: b940def881aae8f43ad0ecc2d8284887, type: 3}
+      propertyPath: movingUpSprite
+      value: 
+      objectReference: {fileID: 1442036989, guid: dea468b26445f8543b83d755e534c988, type: 3}
+    - target: {fileID: 4449522983522832531, guid: b940def881aae8f43ad0ecc2d8284887, type: 3}
+      propertyPath: spriteRenderer
+      value: 
+      objectReference: {fileID: 2087116554}
+    - target: {fileID: 4449522983522832531, guid: b940def881aae8f43ad0ecc2d8284887, type: 3}
+      propertyPath: walkLeftSprite
+      value: 
+      objectReference: {fileID: 909340341, guid: dea468b26445f8543b83d755e534c988, type: 3}
+    - target: {fileID: 4449522983522832531, guid: b940def881aae8f43ad0ecc2d8284887, type: 3}
+      propertyPath: walkRightSprite
+      value: 
+      objectReference: {fileID: 909340341, guid: dea468b26445f8543b83d755e534c988, type: 3}
+    - target: {fileID: 4449522983522832531, guid: b940def881aae8f43ad0ecc2d8284887, type: 3}
+      propertyPath: movingDownSprite
+      value: 
+      objectReference: {fileID: 1758052220, guid: dea468b26445f8543b83d755e534c988, type: 3}
     - target: {fileID: 4449522983522832531, guid: b940def881aae8f43ad0ecc2d8284887, type: 3}
       propertyPath: jumpSustainMultiplier
       value: 1.5

@@ -14,6 +14,15 @@ public class PlayerController : MonoBehaviour
     private bool isGrounded;
     private bool facingRight = true;
 
+    public SpriteRenderer spriteRenderer; // Reference to the SpriteRenderer component
+
+    public Sprite idleSprite;
+    public Sprite walkingSprite;
+    public Sprite jumpingSprite;
+    public Sprite fallingSprite;
+    public Sprite movingUpSprite; // Sprite for moving up
+    public Sprite movingDownSprite; // Sprite for moving down
+
     void Update()
     {
         // Check if the player is on the ground
@@ -21,7 +30,7 @@ public class PlayerController : MonoBehaviour
 
         // Get input from the keyboard
         float moveDirectionX = Input.GetAxis("Horizontal");
-        float moveDirectionY = Input.GetAxis("Vertical");
+        float moveDirectionY = Input.GetAxis("Vertical"); // Vertical input
 
         // Calculate movement vector
         Vector3 move = new Vector3(moveDirectionX, 0, moveDirectionY);
@@ -61,6 +70,9 @@ public class PlayerController : MonoBehaviour
         // Apply gravity and move the character
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
+
+        // Update sprite based on movement direction and velocity
+        UpdateSprite(moveDirectionX, moveDirectionY, velocity.y);
     }
 
     void Flip()
@@ -69,5 +81,43 @@ public class PlayerController : MonoBehaviour
         Vector3 localScale = transform.localScale;
         localScale.x *= -1;
         transform.localScale = localScale;
+    }
+
+    void UpdateSprite(float moveDirectionX, float moveDirectionY, float verticalVelocity)
+    {
+        if (moveDirectionY > 0)
+        {
+            // Moving up
+            spriteRenderer.sprite = movingUpSprite;
+        }
+        else if (moveDirectionY < 0)
+        {
+            // Moving down
+            spriteRenderer.sprite = movingDownSprite;
+        }
+        else if (!isGrounded)
+        {
+            // Update sprite based on vertical velocity
+            if (verticalVelocity > 0)
+            {
+                // Jumping
+                spriteRenderer.sprite = jumpingSprite;
+            }
+            else if (verticalVelocity < 0)
+            {
+                // Falling
+                spriteRenderer.sprite = fallingSprite;
+            }
+        }
+        else if (moveDirectionX != 0)
+        {
+            // Walking
+            spriteRenderer.sprite = walkingSprite;
+        }
+        else
+        {
+            // Idle
+            spriteRenderer.sprite = idleSprite;
+        }
     }
 }
