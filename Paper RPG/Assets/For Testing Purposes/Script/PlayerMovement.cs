@@ -14,17 +14,20 @@ public class PlayerController : MonoBehaviour
     private bool isGrounded;
     private bool facingRight = true;
 
-    public SpriteRenderer spriteRenderer; // Reference to the SpriteRenderer component
+    // public SpriteRenderer spriteRenderer; // Reference to the SpriteRenderer component
 
-    public Sprite idleSprite;
-    public Sprite walkingSprite;
-    public Sprite jumpingSprite;
-    public Sprite fallingSprite;
-    public Sprite movingUpSprite; // Sprite for moving up
-    public Sprite movingDownSprite; // Sprite for moving down
+    // public Sprite idleSprite;
+    // public Sprite walkingSprite;
+    // public Sprite jumpingSprite;
+    // public Sprite fallingSprite;
+    // public Sprite movingUpSprite; // Sprite for moving up
+    // public Sprite movingDownSprite; // Sprite for moving down
+
+    public Animator animator;
 
     void Update()
     {
+
         // Check if the player is on the ground
         isGrounded = controller.isGrounded;
 
@@ -35,6 +38,9 @@ public class PlayerController : MonoBehaviour
         // Calculate movement vector
         Vector3 move = new Vector3(moveDirectionX, 0, moveDirectionY);
         controller.Move(move * speed * Time.deltaTime);
+
+        animator.SetFloat("Speed", Mathf.Abs(Input.GetAxis("Horizontal")));
+
 
         // Flip the sprite based on movement direction
         if (moveDirectionX > 0 && !facingRight)
@@ -72,7 +78,7 @@ public class PlayerController : MonoBehaviour
         controller.Move(velocity * Time.deltaTime);
 
         // Update sprite based on movement direction and velocity
-        UpdateSprite(moveDirectionX, moveDirectionY, velocity.y);
+        // UpdateSprite(moveDirectionX, moveDirectionY, velocity.y);
     }
 
     void Flip()
@@ -83,41 +89,41 @@ public class PlayerController : MonoBehaviour
         transform.localScale = localScale;
     }
 
-    void UpdateSprite(float moveDirectionX, float moveDirectionY, float verticalVelocity)
-    {
-        if (moveDirectionY > 0)
-        {
-            // Moving up
-            spriteRenderer.sprite = movingUpSprite;
-        }
-        else if (moveDirectionY < 0)
-        {
-            // Moving down
-            spriteRenderer.sprite = movingDownSprite;
-        }
-        else if (!isGrounded)
-        {
-            // Update sprite based on vertical velocity
-            if (verticalVelocity > 0)
-            {
-                // Jumping
-                spriteRenderer.sprite = jumpingSprite;
-            }
-            else if (verticalVelocity < 0)
-            {
-                // Falling
-                spriteRenderer.sprite = fallingSprite;
-            }
-        }
-        else if (moveDirectionX != 0)
-        {
-            // Walking
-            spriteRenderer.sprite = walkingSprite;
-        }
-        else
-        {
-            // Idle
-            spriteRenderer.sprite = idleSprite;
-        }
-    }
+    // void UpdateSprite(float moveDirectionX, float moveDirectionY, float verticalVelocity)
+    // {
+    //     if (moveDirectionY > 0)
+    //     {
+    //         // Moving up
+    //         spriteRenderer.sprite = movingUpSprite;
+    //     }
+    //     else if (moveDirectionY < 0)
+    //     {
+    //         // Moving down
+    //         spriteRenderer.sprite = movingDownSprite;
+    //     }
+    //     else if (!isGrounded)
+    //     {
+    //         // Update sprite based on vertical velocity
+    //         if (verticalVelocity > 0)
+    //         {
+    //             // Jumping
+    //             spriteRenderer.sprite = jumpingSprite;
+    //         }
+    //         else if (verticalVelocity < 0)
+    //         {
+    //             // Falling
+    //             spriteRenderer.sprite = fallingSprite;
+    //         }
+    //     }
+    //     else if (moveDirectionX != 0)
+    //     {
+    //         // Walking
+    //         spriteRenderer.sprite = walkingSprite;
+    //     }
+    //     else
+    //     {
+    //         // Idle
+    //         spriteRenderer.sprite = idleSprite;
+    //     }
+    // }
 }
